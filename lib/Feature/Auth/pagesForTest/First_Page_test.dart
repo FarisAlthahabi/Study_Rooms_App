@@ -1,12 +1,17 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:my_reservations/Core/Domain/Model/User_model.dart';
 import 'package:my_reservations/Feature/Auth/bloc/user_bloc.dart';
-import 'package:my_reservations/Feature/Auth/pagesForTest/Register_Page_Test.dart';
 import 'package:my_reservations/Feature/Auth/pagesForTest/Login_Page_test.dart';
+import 'package:my_reservations/Feature/Auth/pagesForTest/Register_Page_Test.dart';
 
 class FirstPageTest extends StatelessWidget {
-  const FirstPageTest({super.key});
+   FirstPageTest({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,10 +58,8 @@ class FirstPageTest extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => RegisterPageTest()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => RegisterPageTest()));
             },
             child: Container(
               padding:

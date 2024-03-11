@@ -4,13 +4,11 @@ import 'dart:convert';
 import 'package:my_reservations/Core/Domain/Model/Base_model.dart';
 
 class UserModel extends BaseModel {
-  num id;
   String UserName;
   String role;
   num phoneNumber;
   String password;
   UserModel({
-    required this.id,
     required this.UserName,
     required this.role,
     required this.phoneNumber,
@@ -19,14 +17,12 @@ class UserModel extends BaseModel {
 
 
   UserModel copyWith({
-    num? id,
     String? UserName,
     String? role,
     num? phoneNumber,
     String? password,
   }) {
     return UserModel(
-      id: id ?? this.id,
       UserName: UserName ?? this.UserName,
       role: role ?? this.role,
       phoneNumber: phoneNumber ?? this.phoneNumber,
@@ -36,7 +32,6 @@ class UserModel extends BaseModel {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'id': id,
       'UserName': UserName,
       'role': role,
       'phoneNumber': phoneNumber,
@@ -46,7 +41,6 @@ class UserModel extends BaseModel {
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
-      id: map['id'] as num,
       UserName: map['UserName'] as String,
       role: map['role'] as String,
       phoneNumber: map['phoneNumber'] as num,
@@ -60,7 +54,7 @@ class UserModel extends BaseModel {
 
   @override
   String toString() {
-    return 'UserModel(id: $id, UserName: $UserName, role: $role, phoneNumber: $phoneNumber, password: $password)';
+    return 'UserModel(UserName: $UserName, role: $role, phoneNumber: $phoneNumber, password: $password)';
   }
 
   @override
@@ -68,7 +62,6 @@ class UserModel extends BaseModel {
     if (identical(this, other)) return true;
   
     return 
-      other.id == id &&
       other.UserName == UserName &&
       other.role == role &&
       other.phoneNumber == phoneNumber &&
@@ -77,8 +70,7 @@ class UserModel extends BaseModel {
 
   @override
   int get hashCode {
-    return id.hashCode ^
-      UserName.hashCode ^
+    return UserName.hashCode ^
       role.hashCode ^
       phoneNumber.hashCode ^
       password.hashCode;

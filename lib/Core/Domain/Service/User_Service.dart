@@ -4,7 +4,7 @@ import 'package:my_reservations/Core/Domain/Model/User_model.dart';
 import 'package:my_reservations/Core/Domain/Service/Base_service.dart';
 
 class UserService extends baseService {
-  Login(UserLoginModel UserLogin) async {
+  Future Login(UserLoginModel UserLogin) async {
     UserLoginModel userLogin = UserLogin;
     response = await dio.get(getUserInfoURL , data:userLogin.toJson() );
     try {
@@ -19,8 +19,8 @@ class UserService extends baseService {
     }
   }
 
-  Register(UserModel user) async {
-    response = await dio.post(RegisterURL, data: user.toJson());
+  Future Register(UserModel user) async {
+    response = await dio.post(registerURL, data: user.toJson());
     try {
       if (response.statusCode == 201) {
         UserModel user = UserModel.fromJson(response.data);

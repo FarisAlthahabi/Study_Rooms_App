@@ -158,7 +158,6 @@ class RegisterPage extends StatelessWidget {
               child: InkWell(
                 onTap: () {
                   UserModel user = UserModel(
-                      id: 1,
                       UserName: UserName.text,
                       role: Role.text,
                       phoneNumber: num.parse(PhoneNumber.text),
